@@ -1,0 +1,47 @@
+{% extends "layouts/layout.html" %}
+{% block title %}
+usero
+{% endblock %}
+{% block body -%}
+<h1>Listado de usuarios.<a href="/user/create" class="btn btn-success btn-sm">  <span data-feather="plus-square"></span></a>  <a href="{{url_for('user_restore')}}" class="btn btn-link btn-sm" title="Restaurar">  <span data-feather="refresh-cw"></span></a></h1>
+</h1>
+
+  <br>
+  <div class="row">
+    <div class="col-md-12 table-responsive">
+      <table class="table table-borderless ">
+        <thead class="table-dark">
+          <tr>
+            <td class="text-center"><b>ID</b></td>
+            <td class="text-center"><b>Nombres</b></td>
+            <td class="text-center"><b>Email</b></td>
+            <td class="text-center"><b>Creación</b></td>
+            <th colspan="4" class="text-center">Acción&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          {%  if not user.delete_on%}
+          <tr>
+            <td class="text-center">{{user.id}}</td>
+            <td class="text-center">{{user.name}}</td>
+            <td class="text-center">{{user.email}}</td>
+            <td class="text-center">{{user.create_on}}</td>
+            <td  class="text-center">
+              <a href="/user/show/{{user.id}}" class="btn btn-secondary btn-sm">  <span data-feather="eye"></span></a>
+              <a href="/user/delete_view/{{user.id}}" class="btn btn-danger btn-delete btn-sm"><span data-feather="delete"></span></a>
+              <a href="/user/edit/{{user.id}}" class="btn btn-primary btn-sm">  <span data-feather="edit"></span></a>
+              <a href="/user/delete/{{user.id}}" class="btn btn-danger btn-delete btn-sm"><span data-feather="trash-2"></span></a>
+              
+            </td>
+          </tr>
+           {%  endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+
+{%- endblock %}

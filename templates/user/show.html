@@ -1,0 +1,33 @@
+{% extends "layouts/layout.html" %}
+{% block body -%}
+{% from 'macro/macro.html' import render_input %}
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="card card-body">
+      <div class="card-header">
+            Ver usuario <a href="/users" class="btn btn-info btn-sm"><span data-feather="arrow-left"></span></a>
+      </div>
+        <form action="/update/{{user.id}}" method="POST">
+          <br>
+          <div class="form-group">
+              <label class="control-label" for="name">Nombres:</label>
+              <input type="text" name="name" class="form-control" value="{{user.name}}" disabled="" style="color: black">
+            
+          </div>
+          <div class="form-group">
+              <label class="control-label" for="email">Email address:</label>
+              <input type="text" name="email" class="form-control" value="{{user.email}}" disabled="" style="color: black">
+          </div>
+          <div class="form-group">
+               <label class="control-label" for="email">Contraseña:</label>
+               <input type="password" name="password" class="form-control" value="{{user.password}}" disabled="" style="color: black">
+          </div>      
+          <div class="form-group">
+               <label class="control-label" for="file">Foto:</label>
+               <img class="mb-3" src="{{user.file}}" alt="" width="72" height="72" name="file">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{%- endblock %}

@@ -1,0 +1,56 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>JM PROGRAMMING - Login</title>
+
+    <link rel="shortcut icon" href="{{url_for('static', filename='imgs/pc.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename='css/signin.css')}}" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">JM PROGRAMMING</a>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">    
+           {% if auth %}
+              <a class="nav-link" href="/home">Home</a>
+           {% endif  %}
+        </li>
+      </ul>
+    </nav>
+
+    <form class="form-signin" action="{{url_for('veficary')}}" method="POST">
+
+      {% include "message/message.html" %}
+      <img class="mb-3" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+      <label for="inputEmail" class="sr-only">Email</label>
+      <input type="email" id="inputEmail" name="email" class="form-control form-signin" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control form-signin" name="password" placeholder="Password" required>
+    
+          <div class="checkbox mb-4">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me  &nbsp;&nbsp;&nbsp;<a href="{{url_for('viewregister')}}"> Registrar</a>
+            </label>
+          </div>
+           
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+
+    <script src="{{url_for('static', filename='js/app.js')}}"></script>
+  </body>
+</html>

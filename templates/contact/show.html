@@ -1,0 +1,25 @@
+{% extends "layouts/layout.html" %}
+{% block body -%}
+
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="card card-body">
+      <div class="card-header">
+            Ver contacto <a href="/contacts" class="btn btn-info btn-sm"><span data-feather="arrow-left"></span></a>
+      </div>
+        <form action="/update/{{contact.id}}" method="POST">
+          <div class="form-group">
+            <input type="text" style="color: black" name="fullname" disabled="" value="{{contact.fullname}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" name="phone" style="color: black" disabled="" value="{{contact.phone}}" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="text" style="color: black" name="email" disabled="" value="{{contact.email}}" class="form-control">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{% endblock -%}

@@ -1,0 +1,32 @@
+{% extends "layouts/layout.html" %}
+{% block body -%}
+{% from 'macro/macro.html' import render_input %}
+  <div class="row">
+    <div class="col-md-12 ">
+      <div class="card card-body">
+      <div class="card-header">
+            Editar contacto <a href="/contacts" class="btn btn-info btn-sm"><span data-feather="arrow-left"></span></a>
+      </div>
+        <form action="/update/{{contact.id}}" method="POST">
+          <div class="form-group">
+            <input type="text" name="fullname" class="form-control" value="{{contact.fullname}}">
+            
+          </div>
+          <div class="form-group">
+              <input type="text" name="email" class="form-control" value="{{contact.email}}">
+          </div>
+          <div class="form-group">
+             <input type="text" name="phone" class="form-control" value="{{contact.phone}}">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">
+                <span data-feather="edit"></span>
+                
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+{%- endblock %}
